@@ -175,6 +175,15 @@ class Keyboard {
   }
 
   insertText(chars) {
+    const cursorAt = this.textarea.selectionStart;
+
+    this.textarea.value = this.textarea.value.slice(0, cursorAt)
+      + chars
+      + this.textarea.value.slice(this.textarea.selectionEnd);
+
+    this.textarea.selectionStart = cursorAt + chars.length;
+
+    this.textarea.selectionEnd = this.textarea.selectionStart;
   }
 
   arrowUp() {
