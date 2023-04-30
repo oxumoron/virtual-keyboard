@@ -199,6 +199,18 @@ class Keyboard {
   }
 
   pressBackspace() {
+    if (this.textarea.selectionStart !== this.textarea.selectionEnd) {
+      this.insertText('');
+    } else {
+      const cursorAt = Math.max(0, this.textarea.selectionStart - 1);
+
+      this.textarea.value = this.textarea.value.slice(0, cursorAt)
+        + this.textarea.value.slice(this.textarea.selectionEnd);
+
+      this.textarea.selectionStart = cursorAt;
+
+      this.textarea.selectionEnd = this.textarea.selectionStart;
+    }
   }
 
   pressDelete() {
