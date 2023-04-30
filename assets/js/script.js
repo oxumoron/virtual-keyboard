@@ -187,15 +187,30 @@ class Keyboard {
   }
 
   arrowUp() {
+    this.textarea.selectionStart = 0;
+
+    this.textarea.selectionEnd = this.textarea.selectionStart;
   }
 
   arrowDown() {
+    this.textarea.selectionEnd = this.textarea.textLength;
+
+    this.textarea.selectionStart = this.textarea.selectionEnd;
   }
 
   arrowLeft() {
+    this.textarea.selectionStart = Math.max(0, this.textarea.selectionStart - 1);
+
+    this.textarea.selectionEnd = this.textarea.selectionStart;
   }
 
   arrowRight() {
+    this.textarea.selectionStart = Math.min(
+      this.textarea.textLength,
+      this.textarea.selectionEnd + 1,
+    );
+
+    this.textarea.selectionEnd = this.textarea.selectionStart;
   }
 
   pressBackspace() {
