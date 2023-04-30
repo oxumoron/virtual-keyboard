@@ -646,3 +646,33 @@ const keyboard = [
   ],
 ];
 
+const keyboardKeys = {};
+const keyboardFragment = document.createDocumentFragment();
+
+keyboard.forEach((row) => {
+  const keyboardRow = document.createElement('li');
+  keyboardRow.classList.add('keyboard__row');
+
+  row.forEach((key) => {
+    keyboardKeys[key.code] = key.lang;
+    keyboardKeys[key.code].function = key.function;
+    keyboardKeys[key.code].sup = key.sup;
+
+    const keyElement = document.createElement('button');
+    keyElement.setAttribute('id', key.code);
+    keyElement.setAttribute('type', 'button');
+    keyElement.classList.add('keyboard__key');
+    keyElement.classList.add(`keyboard__key-${key.width}`);
+
+    keyElement.textContent = key.lang.en;
+
+    keyboardRow.append(keyElement);
+  });
+
+  keyboardFragment.append(keyboardRow);
+});
+
+export {
+  keyboardFragment,
+  keyboardKeys,
+};
