@@ -6,7 +6,7 @@ const keyboard = [
       en: '`',
       ru: 'ё',
     },
-    width: 'regular',
+    width: 'small',
     sup: '~',
   },
   {
@@ -16,7 +16,7 @@ const keyboard = [
       en: '1',
       ru: '1',
     },
-    width: 'regular',
+    width: 'small',
     sup: '!',
   },
   {
@@ -26,7 +26,7 @@ const keyboard = [
       en: '2',
       ru: '2',
     },
-    width: 'regular',
+    width: 'small',
     sup: '@',
   },
   {
@@ -36,7 +36,7 @@ const keyboard = [
       en: '3',
       ru: '3',
     },
-    width: 'regular',
+    width: 'small',
     sup: '#',
   },
   {
@@ -46,7 +46,7 @@ const keyboard = [
       en: '4',
       ru: '4',
     },
-    width: 'regular',
+    width: 'small',
     sup: '$',
   },
   {
@@ -56,7 +56,7 @@ const keyboard = [
       en: '5',
       ru: '5',
     },
-    width: 'regular',
+    width: 'small',
     sup: '%',
   },
   {
@@ -66,7 +66,7 @@ const keyboard = [
       en: '6',
       ru: '6',
     },
-    width: 'regular',
+    width: 'small',
     sup: ':',
   },
   {
@@ -76,7 +76,7 @@ const keyboard = [
       en: '7',
       ru: '7',
     },
-    width: 'regular',
+    width: 'small',
     sup: '?',
   },
   {
@@ -86,7 +86,7 @@ const keyboard = [
       en: '8',
       ru: '8',
     },
-    width: 'regular',
+    width: 'small',
     sup: '*',
   },
   {
@@ -96,7 +96,7 @@ const keyboard = [
       en: '9',
       ru: '9',
     },
-    width: 'regular',
+    width: 'small',
     sup: '(',
   },
   {
@@ -106,7 +106,7 @@ const keyboard = [
       en: '0',
       ru: '0',
     },
-    width: 'regular',
+    width: 'small',
     sup: ')',
   },
   {
@@ -116,7 +116,7 @@ const keyboard = [
       en: '-',
       ru: '-',
     },
-    width: 'regular',
+    width: 'small',
     sup: '-',
   },
   {
@@ -126,7 +126,7 @@ const keyboard = [
       en: '=',
       ru: '=',
     },
-    width: 'regular',
+    width: 'small',
     sup: '+',
   },
   {
@@ -136,7 +136,7 @@ const keyboard = [
       en: 'Backspace',
       ru: 'Backspace',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   {
@@ -146,7 +146,7 @@ const keyboard = [
       en: 'Del',
       ru: 'Del',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   ],
@@ -157,7 +157,7 @@ const keyboard = [
       en: 'Tab',
       ru: 'Tab',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   {
@@ -167,7 +167,7 @@ const keyboard = [
       en: 'q',
       ru: 'й',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -177,7 +177,7 @@ const keyboard = [
       en: 'w',
       ru: 'ц',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -187,7 +187,7 @@ const keyboard = [
       en: 'e',
       ru: 'у',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -197,7 +197,7 @@ const keyboard = [
       en: 'r',
       ru: 'к',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -207,7 +207,7 @@ const keyboard = [
       en: 't',
       ru: 'е',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -217,7 +217,7 @@ const keyboard = [
       en: 'y',
       ru: 'н',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -227,7 +227,7 @@ const keyboard = [
       en: 'u',
       ru: 'г',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -237,7 +237,7 @@ const keyboard = [
       en: 'i',
       ru: 'ш',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -247,7 +247,7 @@ const keyboard = [
       en: 'o',
       ru: 'щ',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -257,7 +257,7 @@ const keyboard = [
       en: 'p',
       ru: 'з',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -267,7 +267,7 @@ const keyboard = [
       en: '[',
       ru: 'х',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -277,7 +277,7 @@ const keyboard = [
       en: ']',
       ru: 'ъ',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -287,7 +287,7 @@ const keyboard = [
       en: '\\',
       ru: '\\',
     },
-    width: 'regular',
+    width: 'small',
     sup: '/',
   },
   ],
@@ -298,7 +298,7 @@ const keyboard = [
       en: 'CapsLock',
       ru: 'CapsLock',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   {
@@ -308,7 +308,7 @@ const keyboard = [
       en: 'a',
       ru: 'ф',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -318,7 +318,7 @@ const keyboard = [
       en: 's',
       ru: 'ы',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -328,7 +328,7 @@ const keyboard = [
       en: 'd',
       ru: 'в',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -338,7 +338,7 @@ const keyboard = [
       en: 'f',
       ru: 'а',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -348,7 +348,7 @@ const keyboard = [
       en: 'g',
       ru: 'п',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -358,7 +358,7 @@ const keyboard = [
       en: 'h',
       ru: 'р',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -368,7 +368,7 @@ const keyboard = [
       en: 'j',
       ru: 'о',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -378,7 +378,7 @@ const keyboard = [
       en: 'k',
       ru: 'л',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -388,7 +388,7 @@ const keyboard = [
       en: 'l',
       ru: 'д',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -398,7 +398,7 @@ const keyboard = [
       en: ';',
       ru: 'ж',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -408,7 +408,7 @@ const keyboard = [
       en: "'",
       ru: 'э',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -418,7 +418,7 @@ const keyboard = [
       en: 'Enter',
       ru: 'Enter',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   ],
@@ -429,7 +429,7 @@ const keyboard = [
       en: 'Shift',
       ru: 'Shift',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   {
@@ -439,7 +439,7 @@ const keyboard = [
       en: 'z',
       ru: 'я',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -449,7 +449,7 @@ const keyboard = [
       en: 'x',
       ru: 'ч',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -459,7 +459,7 @@ const keyboard = [
       en: 'c',
       ru: 'с',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -469,7 +469,7 @@ const keyboard = [
       en: 'v',
       ru: 'м',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -479,7 +479,7 @@ const keyboard = [
       en: 'b',
       ru: 'и',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -489,7 +489,7 @@ const keyboard = [
       en: 'n',
       ru: 'т',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -499,7 +499,7 @@ const keyboard = [
       en: 'm',
       ru: 'ь',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -509,7 +509,7 @@ const keyboard = [
       en: ',',
       ru: 'б',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -519,7 +519,7 @@ const keyboard = [
       en: '.',
       ru: 'ю',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -529,7 +529,7 @@ const keyboard = [
       en: '/',
       ru: '.',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -539,7 +539,7 @@ const keyboard = [
       en: '↑',
       ru: '↑',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -549,7 +549,7 @@ const keyboard = [
       en: 'Shift',
       ru: 'Shift',
     },
-    width: 'extra-wide',
+    width: 'large',
     sup: false,
   },
   ],
@@ -560,7 +560,7 @@ const keyboard = [
       en: 'Ctrl',
       ru: 'Ctrl',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   {
@@ -570,7 +570,7 @@ const keyboard = [
       en: 'Win',
       ru: 'Win',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   {
@@ -580,7 +580,7 @@ const keyboard = [
       en: 'Alt',
       ru: 'Alt',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   {
@@ -590,7 +590,7 @@ const keyboard = [
       en: ' ',
       ru: ' ',
     },
-    width: 'ultra-wide',
+    width: 'xl',
     sup: false,
   },
   {
@@ -600,7 +600,7 @@ const keyboard = [
       en: 'Alt',
       ru: 'Alt',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   {
@@ -610,7 +610,7 @@ const keyboard = [
       en: 'Ctrl',
       ru: 'Ctrl',
     },
-    width: 'wide',
+    width: 'small',
     sup: false,
   },
   {
@@ -620,7 +620,7 @@ const keyboard = [
       en: '←',
       ru: '←',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -630,7 +630,7 @@ const keyboard = [
       en: '↓',
       ru: '↓',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   {
@@ -640,7 +640,7 @@ const keyboard = [
       en: '→',
       ru: '→',
     },
-    width: 'regular',
+    width: 'small',
     sup: false,
   },
   ],

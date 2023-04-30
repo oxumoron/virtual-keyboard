@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: #fff;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: center;
+  font-family: serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.textarea {
+  height: 30vh;
+  width: 100%;
+  padding: 1%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  resize: none;
+  outline: none;
+}
+
+.keyboard {
+  width: 100%;
+  margin: 3% auto;
+  padding: 1%;
+  background-color: #888;
+  border: 3px solid #222222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.keyboard__row {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard__key {
+  height: 45px;
+  width: 45px;
+  margin: 3px;
+  color: #fff;
+  background-color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: all 0.5s;
+}
+
+.keyboard__key.active {
+  background-color: #2cfd72;
+  border-radius: 50px;
+}
+
+.keyboard__key:active {
+  border-radius: 15px;
+}
+
+.keyboard__key:hover {
+  background-color: #79aa89;
+}
+
+.keyboard__key:focus {
+  background-color: #2cfd72;
+  border-radius: 50px;
+}
+
+.keyboard__key-large {
+  width: 110px;
+}
+
+.keyboard__key-xl {
+  width: 250px;
+}

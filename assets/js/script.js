@@ -25,7 +25,7 @@ class Keyboard {
     this.title.textContent = 'RSS Виртуальная клавиатура';
 
     this.textarea.autofocus = true;
-    this.textarea.classList.add('text');
+    this.textarea.classList.add('textarea');
 
     this.keyboard.classList.add('keyboard');
 
