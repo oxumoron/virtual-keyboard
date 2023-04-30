@@ -214,6 +214,18 @@ class Keyboard {
   }
 
   pressDelete() {
+    if (this.textarea.selectionStart !== this.textarea.selectionEnd) {
+      this.insertText('');
+    } else {
+      const cursorAt = this.textarea.selectionStart;
+
+      this.textarea.value = this.textarea.value.slice(0, cursorAt)
+        + this.textarea.value.slice(cursorAt + 1);
+
+      this.textarea.selectionStart = cursorAt;
+
+      this.textarea.selectionEnd = this.textarea.selectionStart;
+    }
   }
 
   showLanguage(lang, shift = false) {
