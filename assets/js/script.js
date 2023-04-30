@@ -229,6 +229,13 @@ class Keyboard {
   }
 
   showLanguage(lang, shift = false) {
+    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
+      (e) => {
+        e.textContent = keyboardKeys[e.id][lang];
+      },
+    );
+
+    this.switchCaps(shift);
   }
 
   switchCaps(shiftKey) {}
