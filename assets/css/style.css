@@ -368,6 +368,10 @@ body {
   font-family: serif;
 }
 
+.title {
+  padding: 20px;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
