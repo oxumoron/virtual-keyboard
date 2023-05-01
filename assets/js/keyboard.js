@@ -7,7 +7,7 @@ const keyboard = [
       ru: 'ё',
     },
     width: 'small',
-    sup: '~',
+    change: true,
   },
   {
     code: 'Digit1',
@@ -17,7 +17,7 @@ const keyboard = [
       ru: '1',
     },
     width: 'small',
-    sup: '!',
+    change: true,
   },
   {
     code: 'Digit2',
@@ -27,7 +27,7 @@ const keyboard = [
       ru: '2',
     },
     width: 'small',
-    sup: '@',
+    change: true,
   },
   {
     code: 'Digit3',
@@ -37,7 +37,7 @@ const keyboard = [
       ru: '3',
     },
     width: 'small',
-    sup: '#',
+    change: true,
   },
   {
     code: 'Digit4',
@@ -47,7 +47,7 @@ const keyboard = [
       ru: '4',
     },
     width: 'small',
-    sup: '$',
+    change: true,
   },
   {
     code: 'Digit5',
@@ -57,7 +57,7 @@ const keyboard = [
       ru: '5',
     },
     width: 'small',
-    sup: '%',
+    change: true,
   },
   {
     code: 'Digit6',
@@ -67,7 +67,7 @@ const keyboard = [
       ru: '6',
     },
     width: 'small',
-    sup: ':',
+    change: true,
   },
   {
     code: 'Digit7',
@@ -77,7 +77,7 @@ const keyboard = [
       ru: '7',
     },
     width: 'small',
-    sup: '?',
+    change: true,
   },
   {
     code: 'Digit8',
@@ -87,7 +87,7 @@ const keyboard = [
       ru: '8',
     },
     width: 'small',
-    sup: '*',
+    change: true,
   },
   {
     code: 'Digit9',
@@ -97,7 +97,7 @@ const keyboard = [
       ru: '9',
     },
     width: 'small',
-    sup: '(',
+    change: true,
   },
   {
     code: 'Digit0',
@@ -107,7 +107,7 @@ const keyboard = [
       ru: '0',
     },
     width: 'small',
-    sup: ')',
+    change: true,
   },
   {
     code: 'Minus',
@@ -117,7 +117,7 @@ const keyboard = [
       ru: '-',
     },
     width: 'small',
-    sup: '-',
+    change: true,
   },
   {
     code: 'Equal',
@@ -127,7 +127,7 @@ const keyboard = [
       ru: '=',
     },
     width: 'small',
-    sup: '+',
+    change: true,
   },
   {
     code: 'Backspace',
@@ -137,7 +137,7 @@ const keyboard = [
       ru: 'Backspace',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   {
     code: 'Delete',
@@ -147,7 +147,7 @@ const keyboard = [
       ru: 'Del',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   ],
   [{
@@ -158,7 +158,7 @@ const keyboard = [
       ru: 'Tab',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyQ',
@@ -168,7 +168,7 @@ const keyboard = [
       ru: 'й',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyW',
@@ -178,7 +178,7 @@ const keyboard = [
       ru: 'ц',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyE',
@@ -188,7 +188,7 @@ const keyboard = [
       ru: 'у',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyR',
@@ -198,7 +198,7 @@ const keyboard = [
       ru: 'к',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyT',
@@ -208,7 +208,7 @@ const keyboard = [
       ru: 'е',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyY',
@@ -218,7 +218,7 @@ const keyboard = [
       ru: 'н',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyU',
@@ -228,7 +228,7 @@ const keyboard = [
       ru: 'г',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyI',
@@ -238,7 +238,7 @@ const keyboard = [
       ru: 'ш',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyO',
@@ -248,7 +248,7 @@ const keyboard = [
       ru: 'щ',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyP',
@@ -258,7 +258,7 @@ const keyboard = [
       ru: 'з',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'BracketLeft',
@@ -268,7 +268,7 @@ const keyboard = [
       ru: 'х',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'BracketRight',
@@ -278,7 +278,7 @@ const keyboard = [
       ru: 'ъ',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Backslash',
@@ -288,7 +288,7 @@ const keyboard = [
       ru: '\\',
     },
     width: 'small',
-    sup: '/',
+    change: true,
   },
   ],
   [{
@@ -299,7 +299,7 @@ const keyboard = [
       ru: 'CapsLock',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyA',
@@ -309,7 +309,7 @@ const keyboard = [
       ru: 'ф',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyS',
@@ -319,7 +319,7 @@ const keyboard = [
       ru: 'ы',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyD',
@@ -329,7 +329,7 @@ const keyboard = [
       ru: 'в',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyF',
@@ -339,7 +339,7 @@ const keyboard = [
       ru: 'а',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyG',
@@ -349,7 +349,7 @@ const keyboard = [
       ru: 'п',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyH',
@@ -359,7 +359,7 @@ const keyboard = [
       ru: 'р',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyJ',
@@ -369,7 +369,7 @@ const keyboard = [
       ru: 'о',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyK',
@@ -379,7 +379,7 @@ const keyboard = [
       ru: 'л',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyL',
@@ -389,7 +389,7 @@ const keyboard = [
       ru: 'д',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Semicolon',
@@ -399,7 +399,7 @@ const keyboard = [
       ru: 'ж',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Quote',
@@ -409,7 +409,7 @@ const keyboard = [
       ru: 'э',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Enter',
@@ -419,7 +419,7 @@ const keyboard = [
       ru: 'Enter',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   ],
   [{
@@ -430,7 +430,7 @@ const keyboard = [
       ru: 'Shift',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyZ',
@@ -440,7 +440,7 @@ const keyboard = [
       ru: 'я',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyX',
@@ -450,7 +450,7 @@ const keyboard = [
       ru: 'ч',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyC',
@@ -460,7 +460,7 @@ const keyboard = [
       ru: 'с',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyV',
@@ -470,7 +470,7 @@ const keyboard = [
       ru: 'м',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyB',
@@ -480,7 +480,7 @@ const keyboard = [
       ru: 'и',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyN',
@@ -490,7 +490,7 @@ const keyboard = [
       ru: 'т',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'KeyM',
@@ -500,7 +500,7 @@ const keyboard = [
       ru: 'ь',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Comma',
@@ -510,7 +510,7 @@ const keyboard = [
       ru: 'б',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Period',
@@ -520,7 +520,7 @@ const keyboard = [
       ru: 'ю',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Slash',
@@ -530,7 +530,7 @@ const keyboard = [
       ru: '.',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ArrowUp',
@@ -540,7 +540,7 @@ const keyboard = [
       ru: '↑',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ShiftRight',
@@ -550,7 +550,7 @@ const keyboard = [
       ru: 'Shift',
     },
     width: 'large',
-    sup: false,
+    change: false,
   },
   ],
   [{
@@ -561,7 +561,7 @@ const keyboard = [
       ru: 'Ctrl',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'MetaLeft',
@@ -571,7 +571,7 @@ const keyboard = [
       ru: 'Win',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'AltLeft',
@@ -581,7 +581,7 @@ const keyboard = [
       ru: 'Alt',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'Space',
@@ -591,7 +591,7 @@ const keyboard = [
       ru: ' ',
     },
     width: 'xl',
-    sup: false,
+    change: false,
   },
   {
     code: 'AltRight',
@@ -601,7 +601,7 @@ const keyboard = [
       ru: 'Alt',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ControlRight',
@@ -611,7 +611,7 @@ const keyboard = [
       ru: 'Ctrl',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ArrowLeft',
@@ -621,7 +621,7 @@ const keyboard = [
       ru: '←',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ArrowDown',
@@ -631,7 +631,7 @@ const keyboard = [
       ru: '↓',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   {
     code: 'ArrowRight',
@@ -641,7 +641,7 @@ const keyboard = [
       ru: '→',
     },
     width: 'small',
-    sup: false,
+    change: false,
   },
   ],
 ];

@@ -1,10 +1,115 @@
 /* eslint-disable import/extensions */
 import { keyboardFragment, keyboardKeys } from './keyboard.js';
 
+const EVENT_CODES = {
+  CAPS_LOCK: 'CapsLock',
+  TAB: 'Tab',
+  SHIFT: 'Shift',
+  ENTER: 'Enter',
+  BACKSPACE: 'Backspace',
+  DELETE: 'Delete',
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_RIGHT: 'ArrowRight',
+};
+
+const LANGUAGES = {
+  EN: 'en',
+  RU: 'ru',
+};
+
+// const keyMappings = {
+//   Backquote: {
+//     en: ['`', '~'],
+//     ru: ['`', '~'],
+//   },
+//   Minus: {
+//     en: ['-', '_'],
+//     ru: ['-', '_'],
+//   },
+//   Digit1: {
+//     en: ['1', '!'],
+//     ru: ['1', '!'],
+//   },
+//   Digit2: {
+//     en: ['2', '@'],
+//     ru: ['2', '"'],
+//   },
+//   Digit3: {
+//     en: ['3', '#'],
+//     ru: ['3', '№'],
+//   },
+//   Digit4: {
+//     en: ['4', '$'],
+//     ru: ['4', ';'],
+//   },
+//   Digit5: {
+//     en: ['5', '%'],
+//     ru: ['5', '%'],
+//   },
+//   Digit6: {
+//     en: ['6', '^'],
+//     ru: ['6', ':'],
+//   },
+//   Digit7: {
+//     en: ['7', '&'],
+//     ru: ['7', '?'],
+//   },
+//   Digit8: {
+//     en: ['8', '*'],
+//     ru: ['8', '*'],
+//   },
+//   Digit9: {
+//     en: ['9', '('],
+//     ru: ['9', '('],
+//   },
+//   Digit0: {
+//     en: ['0', ')'],
+//     ru: ['0', ')'],
+//   },
+//   Equal: {
+//     en: ['=', '+'],
+//     ru: ['=', '+'],
+//   },
+//   BracketLeft: {
+//     en: ['[', '{'],
+//     ru: ['[', '{'],
+//   },
+//   BracketRight: {
+//     en: [']', '}'],
+//     ru: [']', '}'],
+//   },
+//   Backslash: {
+//     en: ['\\', '|'],
+//     ru: ['\\', '/'],
+//   },
+//   Semicolon: {
+//     en: [';', ':'],
+//     ru: [';', ':'],
+//   },
+//   Quote: {
+//     en: ["'", '"'],
+//     ru: ["'", '"'],
+//   },
+//   Comma: {
+//     en: [',', '<'],
+//     ru: [',', '<'],
+//   },
+//   Period: {
+//     en: ['.', '>'],
+//     ru: ['.', '>'],
+//   },
+//   Slash: {
+//     en: ['/', '?'],
+//     ru: ['.', ','],
+//   },
+// };
+
 class Keyboard {
   constructor() {
-    this.caps = false;
-    this.lang = localStorage.getItem('lang') === 'ru' ? 'ru' : 'en';
+    this.isCapsOn = false;
+    this.lang = localStorage.getItem('lang') === LANGUAGES.RU ? LANGUAGES.RU : LANGUAGES.EN;
   }
 
   init() {
@@ -40,17 +145,13 @@ class Keyboard {
 
     // START ADD TO DOM
     this.keyboard.append(keyboardFragment);
-    this.showLanguage(this.lang);
 
-    this.wrapper.append(this.title);
-    this.wrapper.append(this.textarea);
-    this.wrapper.append(this.keyboard);
-    this.wrapper.append(this.description);
-    this.wrapper.append(this.language);
+    this.wrapper.append(this.title, this.textarea, this.keyboard, this.description, this.language);
 
     document.body.append(this.wrapper);
     // END ADD TO DOM
 
+    this.changeLanguage(this.lang);
     this.createListeners();
   }
 
@@ -65,14 +166,14 @@ class Keyboard {
         return;
       }
 
-      if (e.code === 'CapsLock' && !e.repeat) {
+      if (e.code === EVENT_CODES.CAPS_LOCK && !e.repeat) {
         e.preventDefault();
 
-        this.caps = !this.caps;
+        this.isCapsOn = !this.isCapsOn;
 
-        const addRemove = this.caps ? 'add' : 'remove';
+        const addRemoveClass = this.isCapsOn ? 'add' : 'remove';
 
-        key.classList[addRemove]('active');
+        key.classList[addRemoveClass]('active');
 
         this.switchCaps(e.shiftKey);
       } else {
@@ -81,42 +182,42 @@ class Keyboard {
         if ((e.ctrlKey || e.metaKey) && e.altKey && !e.repeat) {
           e.preventDefault();
 
-          this.lang = this.lang === 'ru' ? 'en' : 'ru';
+          this.lang = this.lang === LANGUAGES.RU ? LANGUAGES.EN : LANGUAGES.RU;
 
           localStorage.setItem('lang', this.lang);
 
-          this.showLanguage(this.lang, e.shiftKey);
+          this.changeLanguage(this.lang, e.shiftKey);
         } else if (!keyboardKeys[e.code].function) {
           e.preventDefault();
 
           this.insertText(key.textContent);
-        } else if (e.key === 'Shift' && !e.repeat) {
+        } else if (e.key === EVENT_CODES.SHIFT && !e.repeat) {
           e.preventDefault();
 
           this.switchCaps(e.shiftKey);
-        } else if (e.code === 'Tab') {
+        } else if (e.code === EVENT_CODES.TAB) {
           e.preventDefault();
 
           this.insertText('\t');
-        } else if (e.code === 'Enter') {
+        } else if (e.code === EVENT_CODES.ENTER) {
           e.preventDefault();
 
           this.insertText('\n');
-        } else if (e.code === 'Backspace') {
+        } else if (e.code === EVENT_CODES.BACKSPACE) {
           e.preventDefault();
 
           this.pressBackspace();
-        } else if (e.code === 'Delete') {
+        } else if (e.code === EVENT_CODES.DELETE) {
           e.preventDefault();
 
           this.pressDelete();
-        } else if (e.code === 'ArrowUp' && !e.isTrusted) {
+        } else if (e.code === EVENT_CODES.ARROW_UP && !e.isTrusted) {
           this.arrowUp();
-        } else if (e.code === 'ArrowDown' && !e.isTrusted) {
+        } else if (e.code === EVENT_CODES.ARROW_DOWN && !e.isTrusted) {
           this.arrowDown();
-        } else if (e.code === 'ArrowLeft' && !e.isTrusted) {
+        } else if (e.code === EVENT_CODES.ARROW_LEFT && !e.isTrusted) {
           this.arrowLeft();
-        } else if (e.code === 'ArrowRight' && !e.isTrusted) {
+        } else if (e.code === EVENT_CODES.ARROW_RIGHT && !e.isTrusted) {
           this.arrowRight();
         }
       }
@@ -132,10 +233,10 @@ class Keyboard {
         return;
       }
 
-      if (e.code !== 'CapsLock') {
+      if (e.code !== EVENT_CODES.CAPS_LOCK) {
         key.classList.remove('active');
 
-        if (e.key === 'Shift') {
+        if (e.key === EVENT_CODES.SHIFT) {
           e.preventDefault();
 
           this.switchCaps(e.shiftKey);
@@ -177,44 +278,57 @@ class Keyboard {
   insertText(chars) {
     const cursorAt = this.textarea.selectionStart;
 
-    this.textarea.value = this.textarea.value.slice(0, cursorAt)
-      + chars
-      + this.textarea.value.slice(this.textarea.selectionEnd);
+    this.textarea.value = `${this.textarea.value.slice(0, cursorAt)}${chars}${this.textarea.value.slice(this.textarea.selectionEnd)}`;
 
-    this.textarea.selectionStart = cursorAt + chars.length;
-
-    this.textarea.selectionEnd = this.textarea.selectionStart;
+    this.textarea.setSelectionRange(cursorAt + chars.length, cursorAt + chars.length);
   }
 
   arrowUp() {
-    this.textarea.selectionStart = 0;
+    const currentPos = this.textarea.selectionStart;
+    const currentLineStart = this.textarea.value.lastIndexOf('\n', currentPos - 1) + 1;
+    const prevLineEnd = currentLineStart - 1;
+    const prevLineStart = this.textarea.value.lastIndexOf('\n', prevLineEnd - 1) + 1;
 
-    this.textarea.selectionEnd = this.textarea.selectionStart;
+    this.textarea.selectionStart = prevLineStart;
+    this.textarea.selectionEnd = prevLineEnd;
   }
 
   arrowDown() {
-    this.textarea.selectionEnd = this.textarea.textLength;
+    const cursorAt = this.textarea.selectionStart;
+    const textAfterCursor = this.textarea.value.slice(cursorAt);
+    const indexOfNextNewline = textAfterCursor.indexOf('\n');
 
-    this.textarea.selectionStart = this.textarea.selectionEnd;
+    if (indexOfNextNewline >= 0) {
+      this.textarea.selectionStart = cursorAt + indexOfNextNewline + 1;
+      this.textarea.selectionEnd = this.textarea.selectionStart;
+    } else {
+      this.textarea.selectionEnd = this.textarea.textLength;
+      this.textarea.selectionStart = this.textarea.selectionEnd;
+    }
   }
 
   arrowLeft() {
-    this.textarea.selectionStart = Math.max(0, this.textarea.selectionStart - 1);
+    let { selectionStart, selectionEnd } = this.textarea;
 
-    this.textarea.selectionEnd = this.textarea.selectionStart;
+    selectionStart = Math.max(0, selectionStart - 1);
+    selectionEnd = selectionStart;
+
+    this.textarea.selectionStart = selectionStart;
+    this.textarea.selectionEnd = selectionEnd;
   }
 
   arrowRight() {
     this.textarea.selectionStart = Math.min(
-      this.textarea.textLength,
-      this.textarea.selectionEnd + 1,
+      this.textarea.selectionStart + 1,
+      this.textarea.value.length,
     );
 
     this.textarea.selectionEnd = this.textarea.selectionStart;
   }
 
   pressBackspace() {
-    if (this.textarea.selectionStart !== this.textarea.selectionEnd) {
+    const selectionLength = this.textarea.selectionEnd - this.textarea.selectionStart;
+    if (selectionLength > 0) {
       this.insertText('');
     } else {
       const cursorAt = Math.max(0, this.textarea.selectionStart - 1);
@@ -233,60 +347,64 @@ class Keyboard {
       this.insertText('');
     } else {
       const cursorAt = this.textarea.selectionStart;
-
-      this.textarea.value = this.textarea.value.slice(0, cursorAt)
-        + this.textarea.value.slice(cursorAt + 1);
-
-      this.textarea.selectionStart = cursorAt;
-
-      this.textarea.selectionEnd = this.textarea.selectionStart;
+      this.deleteText(cursorAt, cursorAt + 1);
     }
   }
 
-  showLanguage(lang, shift = false) {
-    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
+  deleteText(selectionStart, selectionEnd) {
+    const newText = this.textarea.value.slice(0, selectionStart)
+      + this.textarea.value.slice(selectionEnd);
+
+    this.textarea.value = newText;
+    this.textarea.selectionStart = selectionStart;
+    this.textarea.selectionEnd = selectionStart;
+  }
+
+  changeLanguage(lang, shift = false) {
+    const keys = this.keyboard.querySelectorAll('.keyboard__key');
+
+    keys.forEach((
       (e) => {
         e.textContent = keyboardKeys[e.id][lang];
-      },
-    );
+      }));
 
     this.switchCaps(shift);
   }
 
   switchCaps(shiftKey) {
-    const showUpperCase = (this.caps && !shiftKey) || (!this.caps && shiftKey);
+    const showUpperCase = (this.isCapsOn && !shiftKey) || (!this.isCapsOn && shiftKey);
     const toCase = showUpperCase ? 'toUpperCase' : 'toLowerCase';
 
     Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
       (e) => {
         if (!keyboardKeys[e.id].function) {
-          if (e.id === 'Backquote' && this.lang === 'en') {
+          if (e.id === 'Backquote' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '~' : '`';
           } else if (e.id === 'Minus') {
             e.textContent = shiftKey ? '_' : '-';
           } else if (e.id === 'Digit1') {
             e.textContent = shiftKey ? '!' : '1';
-          } else if (e.id === 'Digit2' && this.lang === 'en') {
+          } else if (e.id === 'Digit2' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '@' : '2';
-          } else if (e.id === 'Digit2' && this.lang === 'ru') {
+          } else if (e.id === 'Digit2' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? '"' : '2';
-          } else if (e.id === 'Digit3' && this.lang === 'en') {
+          } else if (e.id === 'Digit3' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '#' : '3';
-          } else if (e.id === 'Digit3' && this.lang === 'ru') {
+          } else if (e.id === 'Digit3' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? '№' : '3';
-          } else if (e.id === 'Digit4' && this.lang === 'en') {
+          } else if (e.id === 'Digit4' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '$' : '4';
-          } else if (e.id === 'Digit4' && this.lang === 'ru') {
+          } else if (e.id === 'Digit4' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? ';' : '4';
           } else if (e.id === 'Digit5') {
             e.textContent = shiftKey ? '%' : '5';
-          } else if (e.id === 'Digit6' && this.lang === 'en') {
+          } else if (e.id === 'Digit6' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '^' : '6';
-          } else if (e.id === 'Digit6' && this.lang === 'ru') {
+          } else if (e.id === 'Digit6' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? ':' : '6';
-          } else if (e.id === 'Digit7' && this.lang === 'en') {
+          } else if (e.id === 'Digit7' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '&' : '7';
-          } else if (e.id === 'Digit7' && this.lang === 'ru') {
+          } else if (e.id === 'Digit7' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? '?' : '7';
           } else if (e.id === 'Digit8') {
             e.textContent = shiftKey ? '*' : '8';
@@ -294,27 +412,27 @@ class Keyboard {
             e.textContent = shiftKey ? '(' : '9';
           } else if (e.id === 'Digit0') {
             e.textContent = shiftKey ? ')' : '0';
-          } else if (e.id === 'Equal' && this.lang === 'en') {
+          } else if (e.id === 'Equal' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '+' : '=';
-          } else if (e.id === 'BracketLeft' && this.lang === 'en') {
+          } else if (e.id === 'BracketLeft' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '{' : '[';
-          } else if (e.id === 'BracketRight' && this.lang === 'en') {
+          } else if (e.id === 'BracketRight' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '}' : ']';
-          } else if (e.id === 'Backslash' && this.lang === 'en') {
+          } else if (e.id === 'Backslash' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '|' : '\\';
-          } else if (e.id === 'Backslash' && this.lang === 'ru') {
+          } else if (e.id === 'Backslash' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? '/' : '\\';
-          } else if (e.id === 'Semicolon' && this.lang === 'en') {
+          } else if (e.id === 'Semicolon' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? ':' : ';';
-          } else if (e.id === 'Quote' && this.lang === 'en') {
+          } else if (e.id === 'Quote' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '"' : "'";
-          } else if (e.id === 'Comma' && this.lang === 'en') {
+          } else if (e.id === 'Comma' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '<' : ',';
-          } else if (e.id === 'Period' && this.lang === 'en') {
+          } else if (e.id === 'Period' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '>' : '.';
-          } else if (e.id === 'Slash' && this.lang === 'en') {
+          } else if (e.id === 'Slash' && this.lang === LANGUAGES.EN) {
             e.textContent = shiftKey ? '?' : '/';
-          } else if (e.id === 'Slash' && this.lang === 'ru') {
+          } else if (e.id === 'Slash' && this.lang === LANGUAGES.RU) {
             e.textContent = shiftKey ? ',' : '.';
           } else {
             e.textContent = e.textContent[toCase]();
@@ -323,6 +441,21 @@ class Keyboard {
       },
     );
   }
+  // switchCaps(shiftKey) {
+  //   const showUpperCase = (this.isCapsOn && !shiftKey) || (!this.isCapsOn && shiftKey);
+  //   const toCase = showUpperCase ? 'toUpperCase' : 'toLowerCase';
+
+  //   Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach((e) => {
+  //     const keyMapping = keyMappings[e.id];
+
+  //     if (keyMapping && !keyboardKeys[e.id].change) {
+  //       const char = keyMapping[this.lang][shiftKey ? 1 : 0] || keyMapping[this.lang][0];
+  //       e.textContent = char[toCase]();
+  //     } else {
+  //       e.textContent = e.textContent[toCase]();
+  //     }
+  //   });
+  // }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
