@@ -656,7 +656,6 @@ keyboard.forEach((row) => {
   row.forEach((key) => {
     keyboardKeys[key.code] = key.lang;
     keyboardKeys[key.code].function = key.function;
-    keyboardKeys[key.code].sup = key.sup;
 
     const keyElement = document.createElement('button');
     keyElement.setAttribute('id', key.code);
