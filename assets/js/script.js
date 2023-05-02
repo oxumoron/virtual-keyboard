@@ -19,92 +19,92 @@ const LANGUAGES = {
   RU: 'ru',
 };
 
-// const keyMappings = {
-//   Backquote: {
-//     en: ['`', '~'],
-//     ru: ['`', '~'],
-//   },
-//   Minus: {
-//     en: ['-', '_'],
-//     ru: ['-', '_'],
-//   },
-//   Digit1: {
-//     en: ['1', '!'],
-//     ru: ['1', '!'],
-//   },
-//   Digit2: {
-//     en: ['2', '@'],
-//     ru: ['2', '"'],
-//   },
-//   Digit3: {
-//     en: ['3', '#'],
-//     ru: ['3', '№'],
-//   },
-//   Digit4: {
-//     en: ['4', '$'],
-//     ru: ['4', ';'],
-//   },
-//   Digit5: {
-//     en: ['5', '%'],
-//     ru: ['5', '%'],
-//   },
-//   Digit6: {
-//     en: ['6', '^'],
-//     ru: ['6', ':'],
-//   },
-//   Digit7: {
-//     en: ['7', '&'],
-//     ru: ['7', '?'],
-//   },
-//   Digit8: {
-//     en: ['8', '*'],
-//     ru: ['8', '*'],
-//   },
-//   Digit9: {
-//     en: ['9', '('],
-//     ru: ['9', '('],
-//   },
-//   Digit0: {
-//     en: ['0', ')'],
-//     ru: ['0', ')'],
-//   },
-//   Equal: {
-//     en: ['=', '+'],
-//     ru: ['=', '+'],
-//   },
-//   BracketLeft: {
-//     en: ['[', '{'],
-//     ru: ['[', '{'],
-//   },
-//   BracketRight: {
-//     en: [']', '}'],
-//     ru: [']', '}'],
-//   },
-//   Backslash: {
-//     en: ['\\', '|'],
-//     ru: ['\\', '/'],
-//   },
-//   Semicolon: {
-//     en: [';', ':'],
-//     ru: [';', ':'],
-//   },
-//   Quote: {
-//     en: ["'", '"'],
-//     ru: ["'", '"'],
-//   },
-//   Comma: {
-//     en: [',', '<'],
-//     ru: [',', '<'],
-//   },
-//   Period: {
-//     en: ['.', '>'],
-//     ru: ['.', '>'],
-//   },
-//   Slash: {
-//     en: ['/', '?'],
-//     ru: ['.', ','],
-//   },
-// };
+const keyMappings = {
+  Backquote: {
+    en: ['`', '~'],
+    ru: ['`', '~'],
+  },
+  Minus: {
+    en: ['-', '_'],
+    ru: ['-', '_'],
+  },
+  Digit1: {
+    en: ['1', '!'],
+    ru: ['1', '!'],
+  },
+  Digit2: {
+    en: ['2', '@'],
+    ru: ['2', '"'],
+  },
+  Digit3: {
+    en: ['3', '#'],
+    ru: ['3', '№'],
+  },
+  Digit4: {
+    en: ['4', '$'],
+    ru: ['4', ';'],
+  },
+  Digit5: {
+    en: ['5', '%'],
+    ru: ['5', '%'],
+  },
+  Digit6: {
+    en: ['6', '^'],
+    ru: ['6', ':'],
+  },
+  Digit7: {
+    en: ['7', '&'],
+    ru: ['7', '?'],
+  },
+  Digit8: {
+    en: ['8', '*'],
+    ru: ['8', '*'],
+  },
+  Digit9: {
+    en: ['9', '('],
+    ru: ['9', '('],
+  },
+  Digit0: {
+    en: ['0', ')'],
+    ru: ['0', ')'],
+  },
+  Equal: {
+    en: ['=', '+'],
+    ru: ['=', '+'],
+  },
+  BracketLeft: {
+    en: ['[', '{'],
+    ru: ['[', '{'],
+  },
+  BracketRight: {
+    en: [']', '}'],
+    ru: [']', '}'],
+  },
+  Backslash: {
+    en: ['\\', '|'],
+    ru: ['\\', '/'],
+  },
+  Semicolon: {
+    en: [';', ':'],
+    ru: [';', ':'],
+  },
+  Quote: {
+    en: ["'", '"'],
+    ru: ["'", '"'],
+  },
+  Comma: {
+    en: [',', '<'],
+    ru: [',', '<'],
+  },
+  Period: {
+    en: ['.', '>'],
+    ru: ['.', '>'],
+  },
+  Slash: {
+    en: ['/', '?'],
+    ru: ['.', ','],
+  },
+};
 
 class Keyboard {
   constructor() {
@@ -375,87 +375,16 @@ class Keyboard {
     const showUpperCase = (this.isCapsOn && !shiftKey) || (!this.isCapsOn && shiftKey);
     const toCase = showUpperCase ? 'toUpperCase' : 'toLowerCase';
 
-    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
-      (e) => {
-        if (!keyboardKeys[e.id].function) {
-          if (e.id === 'Backquote' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '~' : '`';
-          } else if (e.id === 'Minus') {
-            e.textContent = shiftKey ? '_' : '-';
-          } else if (e.id === 'Digit1') {
-            e.textContent = shiftKey ? '!' : '1';
-          } else if (e.id === 'Digit2' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '@' : '2';
-          } else if (e.id === 'Digit2' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? '"' : '2';
-          } else if (e.id === 'Digit3' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '#' : '3';
-          } else if (e.id === 'Digit3' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? '№' : '3';
-          } else if (e.id === 'Digit4' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '$' : '4';
-          } else if (e.id === 'Digit4' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? ';' : '4';
-          } else if (e.id === 'Digit5') {
-            e.textContent = shiftKey ? '%' : '5';
-          } else if (e.id === 'Digit6' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '^' : '6';
-          } else if (e.id === 'Digit6' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? ':' : '6';
-          } else if (e.id === 'Digit7' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '&' : '7';
-          } else if (e.id === 'Digit7' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? '?' : '7';
-          } else if (e.id === 'Digit8') {
-            e.textContent = shiftKey ? '*' : '8';
-          } else if (e.id === 'Digit9') {
-            e.textContent = shiftKey ? '(' : '9';
-          } else if (e.id === 'Digit0') {
-            e.textContent = shiftKey ? ')' : '0';
-          } else if (e.id === 'Equal' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '+' : '=';
-          } else if (e.id === 'BracketLeft' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '{' : '[';
-          } else if (e.id === 'BracketRight' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '}' : ']';
-          } else if (e.id === 'Backslash' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '|' : '\\';
-          } else if (e.id === 'Backslash' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? '/' : '\\';
-          } else if (e.id === 'Semicolon' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? ':' : ';';
-          } else if (e.id === 'Quote' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '"' : "'";
-          } else if (e.id === 'Comma' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '<' : ',';
-          } else if (e.id === 'Period' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '>' : '.';
-          } else if (e.id === 'Slash' && this.lang === LANGUAGES.EN) {
-            e.textContent = shiftKey ? '?' : '/';
-          } else if (e.id === 'Slash' && this.lang === LANGUAGES.RU) {
-            e.textContent = shiftKey ? ',' : '.';
-          } else {
-            e.textContent = e.textContent[toCase]();
-          }
-        }
-      },
-    );
+    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach((e) => {
+      const keyMapping = keyMappings[e.id];
+      if (keyMapping && !keyboardKeys[e.id].change) {
+        const char = keyMapping[this.lang][shiftKey ? 1 : 0] || keyMapping[this.lang][0];
+        e.textContent = char[toCase]();
+      } else if (!keyboardKeys[e.id].change && !keyboardKeys[e.id].function) {
+        e.textContent = e.textContent[toCase]();
+      }
+    });
   }
-  // switchCaps(shiftKey) {
-  //   const showUpperCase = (this.isCapsOn && !shiftKey) || (!this.isCapsOn && shiftKey);
-  //   const toCase = showUpperCase ? 'toUpperCase' : 'toLowerCase';
-
-  //   Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach((e) => {
-  //     const keyMapping = keyMappings[e.id];
-
-  //     if (keyMapping && !keyboardKeys[e.id].change) {
-  //       const char = keyMapping[this.lang][shiftKey ? 1 : 0] || keyMapping[this.lang][0];
-  //       e.textContent = char[toCase]();
-  //     } else {
-  //       e.textContent = e.textContent[toCase]();
-  //     }
-  //   });
-  // }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
